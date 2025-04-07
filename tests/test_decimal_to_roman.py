@@ -3,7 +3,7 @@
 import unittest
 from src.roman_converter import decimal_to_roman
 
-class TestDecimalToRoman(unittest.TestCase):
+class test_decimal_to_roman(unittest.TestCase):
     def test_basic_numbers(self): #Valores Principales
         self.assertEqual(decimal_to_roman(1), "I")
         self.assertEqual(decimal_to_roman(5), "V")    
@@ -32,7 +32,7 @@ class TestDecimalToRoman(unittest.TestCase):
         self.assertEqual(decimal_to_roman(49), "XLIX")
         self.assertEqual(decimal_to_roman(54), "LIV")
         self.assertEqual(decimal_to_roman(59), "LIX")
-        self.assertEqual(decimal_to_roman(64), "LXIV2")
+        self.assertEqual(decimal_to_roman(64), "LXIV")
         self.assertEqual(decimal_to_roman(69), "LXIX")
         self.assertEqual(decimal_to_roman(74), "LXXIV")
         self.assertEqual(decimal_to_roman(79), "LXXIX")
@@ -99,7 +99,7 @@ class TestDecimalToRoman(unittest.TestCase):
         self.assertEqual(decimal_to_roman(77), "LXXVII")
         self.assertEqual(decimal_to_roman(78), "LXXVIII")
         self.assertEqual(decimal_to_roman(80), "LXXX")
-        self.assertEqual(decimal_to_roman(81), "LXXI")
+        self.assertEqual(decimal_to_roman(81), "LXXXI")
         self.assertEqual(decimal_to_roman(82), "LXXXII")
         self.assertEqual(decimal_to_roman(83), "LXXXIII")
         self.assertEqual(decimal_to_roman(85), "LXXXV")
