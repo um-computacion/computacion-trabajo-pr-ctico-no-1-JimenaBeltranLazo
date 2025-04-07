@@ -1,0 +1,138 @@
+#FASE 1: Implementación de Pruebas (Rojo)
+
+import unittest
+from src.roman_converter import decimal_to_roman
+
+class test_decimal_to_roman(unittest.TestCase):
+    def test_basic_numbers(self): #Valores Principales
+        self.assertEqual(decimal_to_roman(1), "I")
+        self.assertEqual(decimal_to_roman(5), "V")    
+        self.assertEqual(decimal_to_roman(10), "X")
+        self.assertEqual(decimal_to_roman(50), "L")
+        self.assertEqual(decimal_to_roman(100), "C")
+        self.assertEqual(decimal_to_roman(500), "D")
+        self.assertEqual(decimal_to_roman(1000), "M")
+    
+    def test_subtraction_rules(self): #Restas
+        self.assertEqual(decimal_to_roman(4), "IV") #I
+        self.assertEqual(decimal_to_roman(9), "IX")
+        self.assertEqual(decimal_to_roman(40), "XL") #X
+        self.assertEqual(decimal_to_roman(90), "XC")
+        self.assertEqual(decimal_to_roman(400), "CD") #C
+        self.assertEqual(decimal_to_roman(900), "CM")
+
+    def test_complex_numbers(self): #Suma de Restas (terminan en 4 o 9)
+        self.assertEqual(decimal_to_roman(14), "XIV")
+        self.assertEqual(decimal_to_roman(19), "XIX")
+        self.assertEqual(decimal_to_roman(24), "XXIV")
+        self.assertEqual(decimal_to_roman(29), "XXIX")
+        self.assertEqual(decimal_to_roman(34), "XXXIV")
+        self.assertEqual(decimal_to_roman(39), "XXXIX")
+        self.assertEqual(decimal_to_roman(44), "XLIV")
+        self.assertEqual(decimal_to_roman(49), "XLIX")
+        self.assertEqual(decimal_to_roman(54), "LIV")
+        self.assertEqual(decimal_to_roman(59), "LIX")
+        self.assertEqual(decimal_to_roman(64), "LXIV")
+        self.assertEqual(decimal_to_roman(69), "LXIX")
+        self.assertEqual(decimal_to_roman(74), "LXXIV")
+        self.assertEqual(decimal_to_roman(79), "LXXIX")
+        self.assertEqual(decimal_to_roman(84), "LXXXIV")
+        self.assertEqual(decimal_to_roman(89), "LXXXIX")
+        self.assertEqual(decimal_to_roman(94), "XCIV") 
+        self.assertEqual(decimal_to_roman(99), "XCIX")
+        self.assertEqual(decimal_to_roman(444), "CDXLIV") #Extra
+        self.assertEqual(decimal_to_roman(499), "CDXCIX") #Extra
+        self.assertEqual(decimal_to_roman(944), "CMXLIV") #Extra
+        self.assertEqual(decimal_to_roman(999), "CMXCIX") #Extra
+        self.assertEqual(decimal_to_roman(3999), "MMMCMXCIX") #Extra
+
+    def test_simple_sums(self): #Sumas (terminan en 0, 1, 2, 3, 5, 6, 7 u 8, únicamente mediante la suma de los valores básicos)
+        self.assertEqual(decimal_to_roman(2), "II")
+        self.assertEqual(decimal_to_roman(3), "III")
+        self.assertEqual(decimal_to_roman(6), "VI")
+        self.assertEqual(decimal_to_roman(7), "VII")
+        self.assertEqual(decimal_to_roman(8), "VIII")
+        self.assertEqual(decimal_to_roman(11), "XI")
+        self.assertEqual(decimal_to_roman(12), "XII")
+        self.assertEqual(decimal_to_roman(13), "XIII")
+        self.assertEqual(decimal_to_roman(15), "XV")
+        self.assertEqual(decimal_to_roman(16), "XVI")
+        self.assertEqual(decimal_to_roman(17), "XVII")
+        self.assertEqual(decimal_to_roman(18), "XVIII")
+        self.assertEqual(decimal_to_roman(20), "XX")
+        self.assertEqual(decimal_to_roman(21), "XXI")
+        self.assertEqual(decimal_to_roman(22), "XXII")
+        self.assertEqual(decimal_to_roman(23), "XXIII")
+        self.assertEqual(decimal_to_roman(25), "XXV")
+        self.assertEqual(decimal_to_roman(26), "XXVI")
+        self.assertEqual(decimal_to_roman(27), "XXVII")
+        self.assertEqual(decimal_to_roman(28), "XXVIII")
+        self.assertEqual(decimal_to_roman(30), "XXX")
+        self.assertEqual(decimal_to_roman(31), "XXXI")
+        self.assertEqual(decimal_to_roman(32), "XXXII")
+        self.assertEqual(decimal_to_roman(33), "XXXIII")
+        self.assertEqual(decimal_to_roman(35), "XXXV")
+        self.assertEqual(decimal_to_roman(36), "XXXVI")
+        self.assertEqual(decimal_to_roman(37), "XXXVII")
+        self.assertEqual(decimal_to_roman(38), "XXXVIII")
+        self.assertEqual(decimal_to_roman(51), "LI")
+        self.assertEqual(decimal_to_roman(52), "LII") 
+        self.assertEqual(decimal_to_roman(53), "LIII")
+        self.assertEqual(decimal_to_roman(55), "LV")
+        self.assertEqual(decimal_to_roman(56), "LVI")
+        self.assertEqual(decimal_to_roman(57), "LVII")
+        self.assertEqual(decimal_to_roman(58), "LVIII")
+        self.assertEqual(decimal_to_roman(60), "LX")
+        self.assertEqual(decimal_to_roman(61), "LXI")
+        self.assertEqual(decimal_to_roman(62), "LXII")
+        self.assertEqual(decimal_to_roman(63), "LXIII")
+        self.assertEqual(decimal_to_roman(65), "LXV")
+        self.assertEqual(decimal_to_roman(66), "LXVI")
+        self.assertEqual(decimal_to_roman(67), "LXVII")
+        self.assertEqual(decimal_to_roman(68), "LXVIII")
+        self.assertEqual(decimal_to_roman(70), "LXX")
+        self.assertEqual(decimal_to_roman(71), "LXXI")
+        self.assertEqual(decimal_to_roman(72), "LXXII")
+        self.assertEqual(decimal_to_roman(73), "LXXIII")
+        self.assertEqual(decimal_to_roman(75), "LXXV")
+        self.assertEqual(decimal_to_roman(76), "LXXVI")
+        self.assertEqual(decimal_to_roman(77), "LXXVII")
+        self.assertEqual(decimal_to_roman(78), "LXXVIII")
+        self.assertEqual(decimal_to_roman(80), "LXXX")
+        self.assertEqual(decimal_to_roman(81), "LXXXI")
+        self.assertEqual(decimal_to_roman(82), "LXXXII")
+        self.assertEqual(decimal_to_roman(83), "LXXXIII")
+        self.assertEqual(decimal_to_roman(85), "LXXXV")
+        self.assertEqual(decimal_to_roman(86), "LXXXVI")
+        self.assertEqual(decimal_to_roman(87), "LXXXVII")
+        self.assertEqual(decimal_to_roman(88), "LXXXVIII")
+    
+    def test_forty_family(self):
+        self.assertEqual(decimal_to_roman(41), "XLI")
+        self.assertEqual(decimal_to_roman(42), "XLII")
+        self.assertEqual(decimal_to_roman(43), "XLIII")
+        self.assertEqual(decimal_to_roman(45), "XLV")
+        self.assertEqual(decimal_to_roman(46), "XLVI")
+        self.assertEqual(decimal_to_roman(47), "XLVII")
+        self.assertEqual(decimal_to_roman(48), "XLVIII")
+
+    def test_ninety_family(self):
+        self.assertEqual(decimal_to_roman(91), "XCI")
+        self.assertEqual(decimal_to_roman(92), "XCII")
+        self.assertEqual(decimal_to_roman(93), "XCIII")
+        self.assertEqual(decimal_to_roman(95), "XCV")
+        self.assertEqual(decimal_to_roman(96), "XCVI")
+        self.assertEqual(decimal_to_roman(97), "XCVII")
+        self.assertEqual(decimal_to_roman(98), "XCVIII")
+
+    def test_hundreds_and_thousands(self):
+        self.assertEqual(decimal_to_roman(200), "CC") 
+        self.assertEqual(decimal_to_roman(300), "CCC") 
+        self.assertEqual(decimal_to_roman(600), "DC")
+        self.assertEqual(decimal_to_roman(700), "DCC")
+        self.assertEqual(decimal_to_roman(800), "DCCC")
+        self.assertEqual(decimal_to_roman(2000), "MM")
+        self.assertEqual(decimal_to_roman(3000), "MMM")
+
+if __name__ == '__main__':
+    unittest.main()
